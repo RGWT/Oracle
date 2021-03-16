@@ -105,6 +105,8 @@ GROUP BY department_name,e.EMPLOYEE_id,e.job_id;
 
 
 
+#### 解决办法：
+
 - 此时可以利用`GRANT`语句授予hr权限。
 
 
