@@ -88,7 +88,7 @@ GROUP BY department_name,e.EMPLOYEE_id,e.job_id;
 - 运行结果
 
 ![test1_1_me_output](https://raw.githubusercontent.com/RGWT/All-picture/master/20210316204257.png)
-![](./test1_1_me_output)
+
 
 
 ## 实验参考地址
