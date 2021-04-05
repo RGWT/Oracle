@@ -19,7 +19,7 @@
 
   【示例8-11】在主表orders和从表order_details之间建立引用分区 在study用户中创建两个表：orders（订单表）和order_details（订单详表），两个表通过列order_id建立主外键关联。orders表按范围分区进行存储，order_details使用引用分区进行存储。 创建orders表的部分语句是：
 
-  ```
+  ```sql
   SQL>CREATE TABLE ORDERS
   (
     ORDER_ID NUMBER(10, 0) NOT NULL
@@ -138,7 +138,7 @@
 
   创建order_details表的部分语句如下：
 
-  ```
+  ```sql
   SQL>CREATE TABLE order_details
   (
   id NUMBER(10, 0) NOT NULL
@@ -169,7 +169,7 @@
 
   插入数据
 
-  ```
+  ```sql
   begin
     v_order_detail_id:=1;
     delete from order_details;
@@ -230,6 +230,8 @@
   select count(*) from order_details;
   ```
 
+  #### 实验结果图：
+  
   ![QQ图片20210405155021](D:\Unknown\github\Oracle\test3\picture\QQ图片20210405155021.png)
 
 ![QQ图片20210405154118](D:\Unknown\github\Oracle\test3\picture\QQ图片20210405154118.png)
