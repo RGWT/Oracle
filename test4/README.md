@@ -206,7 +206,7 @@ LOB (PHOTO) STORE AS SYS_LOB0000092017C00009$$
 
 #### 实验图：
 
-
+![Image text](https://github.com/RGWT/Oracle/blob/main/test4/picture/第三步.png)
 
 **4.创建EMPLOYEES表索引**
 
@@ -229,7 +229,7 @@ NOPARALLEL;
 
 #### 实验图：
 
-
+![Image text](https://github.com/RGWT/Oracle/blob/main/test4/picture/第四步.png)
 
 **5.修改EMPLOYEES、DEPARTMENTS表结构**
 
@@ -279,7 +279,7 @@ ENABLE;
 
 #### 实验图：
 
-
+![Image text](https://github.com/RGWT/Oracle/blob/main/test4/picture/第五步.png)
 
 **6.创建PRODUCTS表**
 
@@ -315,7 +315,7 @@ ENABLE;
 
 #### 实验图：
 
-
+![Image text](https://github.com/RGWT/Oracle/blob/main/test4/picture/第六步.png)
 
 **7.创建存储器**
 
@@ -330,7 +330,7 @@ CREATE GLOBAL TEMPORARY TABLE "ORDER_ID_TEMP"
 
 #### 实验图：
 
-
+![Image text](https://github.com/RGWT/Oracle/blob/main/test4/picture/第七步.png)
 
 **8.创建ORDERS表**
 
@@ -389,7 +389,7 @@ PARTITION BY RANGE (ORDER_DATE)
 
 #### 实验图：
 
-
+![Image text](https://github.com/RGWT/Oracle/blob/main/test4/picture/第八步.png)
 
 **9.创建orders表索引**
 
@@ -470,7 +470,7 @@ NOPARALLEL;
 
 #### 实验图：
 
-
+![Image text](https://github.com/RGWT/Oracle/blob/main/test4/picture/第九步.png)
 
 **10.修改ORDERS表结构**
 
@@ -497,7 +497,7 @@ ENABLE;
 
 #### 实验图：
 
-
+![Image text](https://github.com/RGWT/Oracle/blob/main/test4/picture/第十步.png)
 
 **11.创建ORDER_DETAILS表**
 
@@ -563,7 +563,7 @@ PARTITION BY REFERENCE (ORDER_DETAILS_FK1)
 
 #### 实验图：
 
-
+![Image text](https://github.com/RGWT/Oracle/blob/main/test4/picture/第十一步.png)
 
 **12.建立ORDER_DETAILS表索引**
 
@@ -609,7 +609,7 @@ ENABLE;
 
 #### 实验图：
 
-
+![Image text](https://github.com/RGWT/Oracle/blob/main/test4/picture/第十二步.png)
 
 **13.创建三个触发器**
 
@@ -697,7 +697,9 @@ FROM ORDERS o,ORDER_DETAILS d,PRODUCTS p where d.ORDER_ID=o.ORDER_ID and d.PRODU
 
 #### 实验图：
 
+![Image text](https://github.com/RGWT/Oracle/blob/main/test4/picture/第十三步-1.png)
 
+![Image text](https://github.com/RGWT/Oracle/blob/main/test4/picture/第十三步-2.png)
 
 **14.数据插入**
 
@@ -807,7 +809,7 @@ NOCOMPRESS;
 
 #### 实验图：
 
-
+![Image text](https://github.com/RGWT/Oracle/blob/main/test4/picture/第十四步.png)
 
 **15.测试**
 
@@ -827,7 +829,7 @@ NOCOMPRESS;
 select * from orders where order_id=1300;
 ```
 
-
+![Image text](https://github.com/RGWT/Oracle/blob/main/test4/picture/151.png)
 
 #####  2.递归查询某个员工及其所有下属，子下属员工。
 
@@ -836,7 +838,7 @@ select level,employee_id,name,manager_id from employees
 START WITH employee_id = 1 CONNECT BY PRIOR employee_id = manager_id
 ```
 
-
+![Image text](https://github.com/RGWT/Oracle/blob/main/test4/picture/152.png)
 
 #####  3.查询订单表，并且包括订单的订单应收货款
 
@@ -846,7 +848,7 @@ update from orders o set trade_receivable = (select sum(productnum * productpric
 select * from orders;
 ```
 
-
+![Image text](https://github.com/RGWT/Oracle/blob/main/test4/picture/153.png)
 
 #####  4.查询订单详表，要求显示订单的客户名称和客户电话，产品类型用汉字描述。
 
@@ -855,7 +857,7 @@ select o.customer_name,o.customer_tel,p.product_type from order_details od, orde
 where od.order_id = o.order_id and p.product_name = od.product_name;
 ```
 
-
+![Image text](https://github.com/RGWT/Oracle/blob/main/test4/picture/154.png)
 
 #####  5.查询出所有空订单，即没有订单详单的订单。
 
@@ -864,7 +866,7 @@ select * from orders o
 where o.order_id not in (select order_id from order_details);
 ```
 
-
+![Image text](https://github.com/RGWT/Oracle/blob/main/test4/picture/155.png)
 
 #####  6.查询部门表，同时显示部门的负责人姓名。
 
@@ -873,7 +875,7 @@ select d.*, e.name as 负责人 from deparments d,employee e
 where d.department_id = e.employee;
 ```
 
-
+![Image text](https://github.com/RGWT/Oracle/blob/main/test4/picture/156.png)
 
 #####  7.查询部门表，统计每个部门的销售总金额。
 
@@ -885,6 +887,12 @@ where d.department_id = a.department_id
 group by d.department_name;
 ```
 
-
+![Image text](https://github.com/RGWT/Oracle/blob/main/test4/picture/157.png)
 
 ##### 8.数据关系图如下
+
+![Image text](https://github.com/RGWT/Oracle/blob/main/test4/picture/数据关系图.png)
+
+# 实验总结
+
+​		通过本次的对象管理实验，我实际动手操作了建立新的表结构，设置构造器，建立索引。在本次试验中，涉及到了四张表的创建，表结构修改，构造器设置，和对应的创建索引。实验过程多，分步骤操作多，比较容易出错，虽然过程中遇到了一些困难，但是在老师和同学的帮助下，顺利完成了实验。
